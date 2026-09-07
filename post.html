@@ -1,0 +1,4 @@
+{% extends 'base.html' %}{% block title %}{{ post['title'] }} | Bosque County Night Sky Forum{% endblock %}
+{% block content %}<article class="card report"><span class="tag">{{ post['category'] }}</span><h2>{{ post['title'] }}</h2>
+{% if post['area'] or post['observed_at'] %}<p class="meta">{% if post['area'] %}<strong>Area:</strong> {{ post['area'] }}{% endif %}{% if post['area'] and post['observed_at'] %} · {% endif %}{% if post['observed_at'] %}<strong>Observed:</strong> {{ post['observed_at'] }}{% endif %}</p>{% endif %}
+<div class="body">{{ post['body']|e|replace('\n','<br>')|safe }}</div>{% if post['evidence'] %}<hr><h3>Evidence / record references supplied</h3><div class="evidence">{{ post['evidence']|e|replace('\n','<br>')|safe }}</div>{% endif %}<p class="disclaimer">This is a moderated community submission, not an official finding by Bosque County, TCEQ, or another authority.</p></article>{% endblock %}

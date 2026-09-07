@@ -1,0 +1,17 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>{% block title %}Bosque County Night Sky Forum{% endblock %}</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"></head>
+<body>
+<header><div class="wrap">
+  <div class="eyebrow">BOSQUE COUNTY, TEXAS</div>
+  <h1><a href="/">Bosque County Night Sky Forum</a></h1>
+  <p>Community observations about Lhoist, outdoor lighting, glare and changes to our night sky.</p>
+  <nav><a href="/">Public reports</a><a href="/submit">Submit a report</a><a href="/about">About & resources</a></nav>
+</div></header>
+<main class="wrap">
+{% with msgs=get_flashed_messages() %}{% if msgs %}<div class="notice">{{ msgs[0] }}</div>{% endif %}{% endwith %}
+{% block content %}{% endblock %}
+</main>
+<footer><div class="wrap"><p>Independent community forum. Not affiliated with Bosque County, Lhoist, TCEQ, or any government agency. Submissions are moderated before publication.</p></div></footer>
+</body></html>

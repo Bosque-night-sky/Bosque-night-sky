@@ -1,0 +1,15 @@
+{% extends 'base.html' %}{% block title %}Submit a report | Bosque County Night Sky Forum{% endblock %}
+{% block content %}
+<h2>Submit a community report</h2>
+<div class="notice"><strong>Privacy:</strong> This form does not request your name, email address, or phone number. Do not place identifying information in your report unless you want it published. The application does not intentionally save an IP address, but a web host or network provider may independently keep technical logs.</div>
+<form method="post">
+<label>Report title<input name="title" maxlength="160" required placeholder="Example: Bright skyglow visible northwest of Clifton"></label>
+<label>Category<select name="category">{% for c in categories %}<option>{{ c }}</option>{% endfor %}</select></label>
+<div class="row"><label>General area or road<input name="area" maxlength="160" placeholder="Example: FM 219 west of Clifton"></label><label>Date / time observed<input name="observed_at" maxlength="80" placeholder="Example: Sept. 7, 2026 around 10:30 PM"></label></div>
+<label>What did you personally observe?<textarea name="body" rows="10" required placeholder="Describe the light source or glow, direction, brightness, duration, weather/sky conditions, whether it entered a home/property or affected visibility, and whether this differs from normal conditions."></textarea></label>
+<label>Evidence or public-record references<textarea name="evidence" rows="6" placeholder="Describe photos/video, meter readings, repeated observation dates, TCEQ records, meeting dates, agenda items, permit numbers, or public-record links. Avoid posting private personal information."></textarea></label>
+<div class="rules"><h3>Publication rules</h3><p>Reports must focus on observable conditions or documented public matters. No threats, harassment, doxxing, private personal information, impersonation, or knowingly false statements. Do not state that a person or company violated a law unless you can point to a reliable official finding. Opinions should be identified as opinions; allegations should be identified as allegations.</p>
+<label class="check"><input type="checkbox" name="consent" value="yes" required> I agree to these rules and understand that my submission will be reviewed before publication.</label></div>
+<button class="button" type="submit">Send for moderation</button>
+</form>
+{% endblock %}

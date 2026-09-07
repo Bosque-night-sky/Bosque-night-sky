@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+<section class="hero">
+  <p class="kicker">DOCUMENT • COMPARE • PRESERVE THE RECORD</p>
+  <h2>What are Bosque County residents seeing after dark?</h2>
+  <p>This independent forum collects firsthand observations about outdoor lighting and night-sky conditions across Bosque County, including observations concerning the Lhoist Clifton Lime Plant. Reports should describe what was actually seen, where and when it occurred, and include supporting evidence when available.</p>
+  <div class="hero-actions"><a class="button" href="/submit">Submit an anonymous report</a><a class="button secondary" href="/about">Read the ground rules</a></div>
+</section>
+<div class="principles"><div><strong>Firsthand</strong><span>Say what you personally observed.</span></div><div><strong>Specific</strong><span>Include date, time and general area.</span></div><div><strong>Evidence-based</strong><span>Photos, measurements and records help.</span></div></div>
+<h2>Published community reports</h2>
+{% if posts %}{% for p in posts %}
+<article class="card"><span class="tag">{{ p['category'] }}</span><h3><a href="/post/{{ p['id'] }}">{{ p['title'] }}</a></h3>
+{% if p['area'] %}<p class="meta">Area: {{ p['area'] }}{% if p['observed_at'] %} · Observed: {{ p['observed_at'] }}{% endif %}</p>{% endif %}
+<p>{{ p['body'][:320] }}{% if p['body']|length > 320 %}…{% endif %}</p></article>
+{% endfor %}{% else %}<div class="empty"><p>No community reports have been published yet.</p><p>The first useful reports are often simple: location, date/time, direction viewed, weather conditions, and what changed.</p></div>{% endif %}
+{% endblock %}
